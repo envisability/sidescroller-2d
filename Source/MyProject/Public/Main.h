@@ -36,11 +36,23 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player Stats")
 	int32 Coins;
 
+
 	/** Pickup */
 	TArray<FVector> PickupLocations;
 
 	/** Change player's vitals*/
 	UFUNCTION(BlueprintCallable)
 	void DecreaseStamina();
+
+	UFUNCTION(BlueprintCallable)
+	void IncrementCoins(int32 Amount);
+
+	UFUNCTION(BlueprintCallable)
+	void IncrementHealth(float Amount);
+
+	UFUNCTION(BlueprintCallable)
+	void DecrementHealth(float Amount);
+
+	// void Die();
 
 };

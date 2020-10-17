@@ -19,3 +19,33 @@ void AMain::DecreaseStamina()
 		BaseStamina -= 10;
 	}
 }
+
+void AMain::DecrementHealth(float Amount)
+{
+	if (BaseHealth - Amount <= 0.f)
+	{
+		BaseHealth -= Amount;
+		// Die();
+	}
+	else
+	{
+		BaseHealth -= Amount;
+	}
+}
+
+void AMain::IncrementCoins(int32 Amount)
+{
+	Coins += Amount;
+}
+
+void AMain::IncrementHealth(float Amount)
+{
+	if (BaseHealth + Amount >= MaxHealth)
+	{
+		BaseHealth = MaxHealth;
+	}
+	else
+	{
+		BaseHealth += Amount;
+	}
+}
