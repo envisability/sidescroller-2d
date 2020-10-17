@@ -7,8 +7,15 @@ AMain::AMain() {
 
 	// Initialize params 
 	MaxHealth = 100.f;
-	Health = 65.f;
+	BaseHealth = 65.f;
 	MaxStamina = 150.f;
-	Stamina = 120.f;
+	BaseStamina = 120.f;
 	Coins = 0;
+}
+
+void AMain::DecreaseStamina()
+{
+	if (BaseStamina > 10) {
+		BaseStamina -= 10;
+	}
 }

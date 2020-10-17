@@ -25,18 +25,22 @@ public:
 	float MaxHealth;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player Stats")
-	float Health;
+	float BaseHealth;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Player Stats")
 	float MaxStamina;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player Stats")
-	float Stamina;
+	float BaseStamina;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player Stats")
 	int32 Coins;
 
 	/** Pickup */
 	TArray<FVector> PickupLocations;
+
+	/** Change player's vitals*/
+	UFUNCTION(BlueprintCallable)
+	void DecreaseStamina();
 
 };
