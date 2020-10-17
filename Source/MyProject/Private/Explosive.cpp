@@ -24,12 +24,13 @@ void AExplosive::OnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor
 	if (OtherActor)
 	{
 		AMain* Main = Cast<AMain>(OtherActor);
-		/*AEnemy* Enemy = Cast<AEnemy>(OtherActor);
-		if (Main || Enemy)
+		/*AEnemy* Enemy = Cast<AEnemy>(OtherActor);*/
+		if (Main)
 		{
 			if (OverlapParticles)
 			{
-				UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), OverlapParticles, GetActorLocation(), FRotator(0.f), true);
+				UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), 
+					OverlapParticles, GetActorLocation(), FRotator(0.f), true);
 			}
 			if (OverlapSound)
 			{
@@ -38,7 +39,7 @@ void AExplosive::OnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor
 			UGameplayStatics::ApplyDamage(OtherActor, Damage, nullptr, this, DamageTypeClass);
 
 			Destroy();
-		}*/
+		}
 	}
 }
 
