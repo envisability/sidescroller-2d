@@ -27,6 +27,7 @@ void AExplosive::OnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor
 		/*AEnemy* Enemy = Cast<AEnemy>(OtherActor);*/
 		if (Main)
 		{
+			OnExplosionBP(Main);
 			if (OverlapParticles)
 			{
 				UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), 

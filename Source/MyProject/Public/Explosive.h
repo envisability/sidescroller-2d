@@ -27,5 +27,8 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Combat")
 	TSubclassOf<UDamageType> DamageTypeClass;
+
+	UFUNCTION(BlueprintImplementableEvent, Category = "Damage")
+	void OnExplosionBP(class AMain* Target);
 	
 };
