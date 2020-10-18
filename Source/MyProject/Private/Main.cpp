@@ -2,6 +2,8 @@
 
 
 #include "Main.h"
+#include "PaperFlipbookComponent.h"
+#include "GameFramework/CharacterMovementComponent.h"
 
 AMain::AMain() {
 
@@ -12,6 +14,13 @@ AMain::AMain() {
 	BaseStamina = 120.f;
 	Coins = 0;
 }
+
+void AMain::Tick(float DeltaSeconds)
+{
+	Super::Tick(DeltaSeconds);
+	//UpdateCharacter();
+}
+
 
 void AMain::DecreaseStamina()
 {
@@ -25,7 +34,8 @@ void AMain::DecrementHealth(float Amount)
 	if (BaseHealth - Amount <= 0.f)
 	{
 		BaseHealth -= Amount;
-		// Die();
+		UE_LOG(LogTemp, Warning, TEXT("DecrementHealth::Die()"));
+		Die();
 	}
 	else
 	{
@@ -49,3 +59,10 @@ void AMain::IncrementHealth(float Amount)
 		BaseHealth += Amount;
 	}
 }
+
+void AMain::Die()
+{
+	// Load the dead animation to the character 
+	GetSprite()->SetFlipbook(DieAnimation);
+}
+

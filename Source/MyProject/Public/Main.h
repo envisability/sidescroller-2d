@@ -20,6 +20,8 @@ public:
 	/** Constructor */
 	AMain();
 
+	virtual void Tick(float DeltaSeconds) override;
+
 	/** Stats */
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Player Stats")
 	float MaxHealth;
@@ -36,6 +38,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player Stats")
 	int32 Coins;
 
+	/** Animations */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Animations)
+	class UPaperFlipbook* DieAnimation;
 
 	/** Pickup */
 	TArray<FVector> PickupLocations;
@@ -53,6 +58,6 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void DecrementHealth(float Amount);
 
-	// void Die();
+	void Die();
 
 };
